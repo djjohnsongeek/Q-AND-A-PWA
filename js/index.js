@@ -77,6 +77,7 @@ indexPage = {
         }
 
         indexPage.unloadQuestion();
+        indexPage.hideActionBtns(qIndex);
 
         const questionText = document.createTextNode(QData.questions[qIndex][qlang].question);
         const answerText = document.createTextNode(QData.questions[qIndex][qlang].answer);
@@ -126,6 +127,28 @@ indexPage = {
         {
             throw new Error("Required elements are null!");
         }
+    },
+    hideActionBtns: function(currentQIndex)
+    {
+        if ((currentQIndex - 1) < QData.minIndex)
+        {
+            indexPage.setBtnDisabled(indexPage.prevBtn, true);
+        }
+        else {
+            indexPage.setBtnDisabled(indexPage.prevBtn, false);
+        }
+
+        if ((currentQIndex + 1) > QData.maxIndex)
+        {
+            indexPage.setBtnDisabled(indexPage.nextBtn, true);
+        }
+        else {
+            indexPage.setBtnDisabled(indexPage.nextBtn, false);
+        }
+    },
+    setBtnDisabled: function(btnElement, value)
+    {
+        btnElement.disabled = value;
     }
 }
 
