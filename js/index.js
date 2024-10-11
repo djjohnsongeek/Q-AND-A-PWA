@@ -98,7 +98,7 @@ indexPage = {
         indexPage.answerContainer.innerHTML = "";
     },
     incrementQuestion(incrementValue) {
-        if (incrementValue !== 1 || incrementValue !== -1)
+        if (incrementValue !== 1 && incrementValue !== -1)
         {
             throw new Error(`Invalid incrementValue: ${incrementValue}. A '1' or an '-1' is expected.`);
         }
