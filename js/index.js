@@ -12,7 +12,7 @@ indexPage = {
     },
     init: function()
     {
-        // load doc elements
+        // Load HTML elements.
         indexPage.langSelect = document.getElementById("language-select");
         indexPage.questionHeader = document.getElementById("question-header");
         indexPage.answerContainer = document.getElementById("answer-container");
@@ -23,7 +23,7 @@ indexPage = {
 
         indexPage.sanityCheck();
 
-        // Load language options
+        // Load language options.
         for (let lang of QData.languages)
         {
             let option = document.createElement("option");
@@ -33,29 +33,28 @@ indexPage = {
             indexPage.langSelect.appendChild(option);
         }
 
-        // Load default state
+        // Load default state.
         indexPage.state.currentQIndex = QData.minIndex;
         indexPage.state.currentQLang = QData.languages[0].toLowerCase();
 
-
-        // Setup event listeners
+        // Setup event listeners.
         indexPage.showAnswerBtn.addEventListener("click", (event) => {
             indexPage.revealAnswer(event);
         });
 
         indexPage.nextBtn.addEventListener("click", () => {
-            indexPage.nextBtnAction();
+            indexPage.incrementQuestion(1);
         });
 
         indexPage.prevBtn.addEventListener("click", () => {
-            indexPage.prevBtnAction();
+            indexPage.incrementQuestion(-1);
         });
 
         indexPage.langSelect.addEventListener("change", (event) => {
             indexPage.updateLanguage(event);
         });
 
-        // Load the default question
+        // Load the default question.
         indexPage.loadQuestion(indexPage.state.currentQIndex, indexPage.state.currentQLang);
 
     },
@@ -71,8 +70,13 @@ indexPage = {
     },
     loadQuestion: function(qIndex, qlang)
     {
-        console.log(qIndex, qlang);
-        indexPage.unloadQuesstion();
+        if (qIndex > QData.maxIndex || qIndex < QData.minIndex)
+        {
+            alert("There are no more questions.");
+            return;
+        }
+
+        indexPage.unloadQuestion();
 
         const questionText = document.createTextNode(QData.questions[qIndex][qlang].question);
         const answerText = document.createTextNode(QData.questions[qIndex][qlang].answer);
@@ -87,24 +91,21 @@ indexPage = {
 
         indexPage.state.currentQIndex = qIndex;
     },
-    unloadQuesstion: function()
+    unloadQuestion: function()
     {
+        indexPage.hideAnswer();
         indexPage.questionHeader.innerHTML = "";
         indexPage.answerContainer.innerHTML = "";
     },
-    nextBtnAction: function()
-    {
-        const qIndex = indexPage.state.currentQIndex + 1;
+    incrementQuestion(incrementValue) {
+        if (incrementValue !== 1 || incrementValue !== -1)
+        {
+            throw new Error(`Invalid incrementValue: ${incrementValue}. A '1' or an '-1' is expected.`);
+        }
+
+        const newQindex = indexPage.state.currentQIndex += incrementValue;
         const qLang = indexPage.state.currentQLang;
-        indexPage.hideAnswer();
-        indexPage.loadQuestion(qIndex, qLang);
-    },
-    prevBtnAction: function()
-    {
-        const qIndex = indexPage.state.currentQIndex - 1;
-        const qLang = indexPage.state.currentQLang;
-        indexPage.hideAnswer();
-        indexPage.loadQuestion(qIndex, qLang);
+        indexPage.loadQuestion(newQindex, qLang);
     },
     updateLanguage: function(event) {
         indexPage.state.currentQLang = event.currentTarget.value;
