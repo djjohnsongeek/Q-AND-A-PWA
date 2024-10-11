@@ -103,7 +103,7 @@ indexPage = {
             throw new Error(`Invalid incrementValue: ${incrementValue}. A '1' or an '-1' is expected.`);
         }
 
-        const newQindex = indexPage.state.currentQIndex += incrementValue;
+        const newQindex = indexPage.state.currentQIndex + incrementValue;
         const qLang = indexPage.state.currentQLang;
         indexPage.loadQuestion(newQindex, qLang);
     },
