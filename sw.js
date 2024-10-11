@@ -1,5 +1,5 @@
 const GIT_HUB_PATH = "/Q-AND-A-PWA"
-const VERSION = 'v0.0.6';
+const VERSION = 'v0.0.7';
 const CACHE_NAME = `question-answer-${VERSION}}`;
 const CACHED_RESOURCES = [
   `${GIT_HUB_PATH}/`,
@@ -7,6 +7,7 @@ const CACHED_RESOURCES = [
   `${GIT_HUB_PATH}/js/index.js`,
   `${GIT_HUB_PATH}/js/data.js`,
   `${GIT_HUB_PATH}/css/pico.min.css`,
+  `${GIT_HUB_PATH}/css/app.css`,
   `${GIT_HUB_PATH}/icons/q512.png`
 ];
 
