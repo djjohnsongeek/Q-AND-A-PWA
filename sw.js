@@ -1,12 +1,12 @@
 const VERSION = 'v1';
 const CACHE_NAME = `question-answer-${VERSION}}`;
 const CACHED_RESOURCES = [
-  '/',
-  '/index.html',
-  '/js/index.js',
-  '/js/data.js',
-  '/css/pico.min.css',
-  '/icons/q512.png'
+  '/Q-AND-A-PWA/',
+  '/Q-AND-A-PWA/index.html',
+  '/Q-AND-A-PWA/js/index.js',
+  '/Q-AND-A-PWA/js/data.js',
+  '/Q-AND-A-PWA/css/pico.min.css',
+  '/Q-AND-A-PWA/icons/q512.png'
 ];
 
 // Use the install event to pre-cache all initial resources.

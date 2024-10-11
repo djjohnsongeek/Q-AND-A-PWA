@@ -42,7 +42,7 @@
     <script src="js/index.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js', { scope: '/' });
+            navigator.serviceWorker.register('/Q-AND-A-PWA/sw.js', { scope: '/Q-AND-A-PWA/' });
         }
         else {
             console.log("could not register service worker.")
