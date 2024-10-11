@@ -1,12 +1,13 @@
-const VERSION = 'v1';
+const GIT_HUB_PATH = "/Q-AND-A-PWA"
+const VERSION = 'v0.0.1';
 const CACHE_NAME = `question-answer-${VERSION}}`;
 const CACHED_RESOURCES = [
-  '/Q-AND-A-PWA/',
-  '/Q-AND-A-PWA/index.html',
-  '/Q-AND-A-PWA/js/index.js',
-  '/Q-AND-A-PWA/js/data.js',
-  '/Q-AND-A-PWA/css/pico.min.css',
-  '/Q-AND-A-PWA/icons/q512.png'
+  `${GIT_HUB_PATH}/`,
+  `${GIT_HUB_PATH}/index.html`,
+  `${GIT_HUB_PATH}/js/index.js`,
+  `${GIT_HUB_PATH}/js/data.js`,
+  `${GIT_HUB_PATH}/css/pico.min.css`,
+  `${GIT_HUB_PATH}/icons/q512.png`
 ];
 
 // Use the install event to pre-cache all initial resources.

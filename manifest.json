@@ -3,22 +3,23 @@
     "name": "Question & Answer App",
     "short_name": "Q&A",
     "description": "A basic questiona answer application.",
-    "start_url": "/",
+    "start_url": "/Q-AND-A-PWA/",
+    "scope": "/Q-AND-A-PWA/",
     "background_color": "#2f3d58",
     "theme_color": "#2f3d58",
     "orientation": "any",
     "display": "standalone",
     "icons": [
         {
-            "src": "icons/q64.ico",
+            "src": "/Q-AND-A-PWA/icons/q64.ico",
             "sizes": "64x6x"
         },
         {
-            "src": "icons/q512.png",
+            "src": "/Q-AND-A-PWA/icons/q512.png",
             "sizes": "512x512"
         },
         {
-            "src": "icons/q64.png",
+            "src": "/Q-AND-A-PWA/icons/q64.png",
             "sizes": "64x64"
         }
     ]
