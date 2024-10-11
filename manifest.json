@@ -11,16 +11,32 @@
     "display": "standalone",
     "icons": [
         {
-            "src": "/Q-AND-A-PWA/icons/q64.ico",
-            "sizes": "64x6x"
+            "src": "/Q-AND-A-PWA/icons/q16.png",
+            "sizes": "16x16"
         },
         {
-            "src": "/Q-AND-A-PWA/icons/q512.png",
-            "sizes": "512x512"
+            "src": "/Q-AND-A-PWA/icons/q24.png",
+            "sizes": "24X24"
+        },
+        {
+            "src": "/Q-AND-A-PWA/icons/q32.png",
+            "sizes": "32x32"
         },
         {
             "src": "/Q-AND-A-PWA/icons/q64.png",
-            "sizes": "64x64"
+            "sizes": "64X64"
+        },
+        {
+            "src": "/Q-AND-A-PWA/icons/q128.png",
+            "sizes": "128X128"
+        },
+        {
+            "src": "/Q-AND-A-PWA/icons/q256.png",
+            "sizes": "256X256"
+        },
+        {
+            "src": "/Q-AND-A-PWA/icons/q512.png",
+            "sizes": "512X512"
         }
     ]
 }
