@@ -35,6 +35,39 @@ var QData = {
                 question: "Combien de temps un cochon peut-il vivre ?",
                 answer: "Les cochons peuvent vivre jusqu'à 15-20 ans dans des conditions idéales. Cependant, la plupart des cochons d'élevage sont généralement abattus autour de 6 mois à 2 ans.",
             }
+        },
+        {
+            index: 3,
+            english: {
+                question: "What is the oldest tree?",
+                answer: "The oldest known tree is a bristlecone pine named Methuselah, located in California, which is over 4,800 years old. Another contender is a clonal colony of quaking aspen known as Pando, estimated to be around 80,000 years old",
+            },
+            french: {
+                question: "Quel est l'arbre le plus ancien ?",
+                answer: "L'arbre le plus ancien connu est un pin de Bristlecone nommé Methuselah, situé en Californie, qui a plus de 4 800 ans. Un autre concurrent est une colonie clonale de trembles connue sous le nom de Pando, estimée à environ 80 000 ans",
+            }
+        },
+        {
+            index: 4,
+            english: {
+                question: "Do insects have hearts?",
+                answer: "Insects do not have hearts like mammals; instead, they possess a simple dorsal vessel that pumps hemolymph (a fluid equivalent to blood) through their bodies. This system works effectively for their smaller size and different physiological needs.",
+            },
+            french: {
+                question: "Les insectes ont-ils des cœurs ?",
+                answer: "Les insectes n'ont pas de cœur comme les mammifères ; ils possèdent plutôt un vaisseau dorsal simple qui pompe l'hémolymphe (un fluide équivalent au sang) dans leur corps. Ce système fonctionne efficacement pour leur petite taille et leurs besoins physiologiques différents.",
+            }
+        },
+        {
+            index: 5,
+            english: {
+                question: "How deep in the universe?",
+                answer: "The depth of the universe is difficult to quantify, as it is continually expanding and possibly infinite. Current estimates suggest that the observable universe is about 93 billion light-years in diameter.",
+            },
+            french: {
+                question: "Quelle est la profondeur de l'univers ?",
+                answer: "La profondeur de l'univers est difficile à quantifier, car il est en expansion continue et peut être infini. Les estimations actuelles suggèrent que l'univers observable mesure environ 93 milliards d'années-lumière de diamètre.",
+            }
         }
     ]
 }
