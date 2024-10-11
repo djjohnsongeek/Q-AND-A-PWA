@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="css/pico.min.css">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/icons/q64.ico">
+    <title>Q&A</title>
+</head>
+
+<body>
+    <main class="container">
+        <nav>
+            <ul>
+                <li><strong>Q&A</strong></li>
+            </ul>
+            <ul>
+                <li><a class="contrast" href="#">About</a></li>
+                <li><a class="contrast outline" href="#">Services</a></li>
+            </ul>
+        </nav>
+        <h1>Questions & Answers</h1>
+        <article>
+            <Label>Select a Language</Label>
+            <select id="language-select">
+            </select>
+        </article>
+        <article>
+            <h2 id="question-header"></h2>
+            <button type="button" id="show-answer-btn">Show Answer</button>
+            <p id="answer-container" style="display: none;"></p>
+            <div id="nav-buttons-container" style="display: none;">
+                <button type="button" id="prev-btn">← Prev.</button>
+                <button type="button" id="next-btn">Next →</button>
+            </div>
+        </article>
+    </main>
+    <script src="js/data.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js', { scope: '/' });
+        }
+        else {
+            console.log("could not register service worker.")
+        }
+      </script>
+</body>
+</html>
