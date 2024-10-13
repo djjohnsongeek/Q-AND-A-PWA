@@ -77,7 +77,7 @@ indexPage = {
     },
     loadQuestion: function(qIndex, qlang)
     {
-        const maxIndex = QData.questions.maxIndex();
+        const maxIndex = QData.maxIndex();
         if (qIndex > maxIndex || qIndex < maxIndex)
         {
             alert("There are no more questions.");
