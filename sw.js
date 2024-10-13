@@ -1,5 +1,5 @@
 const GIT_HUB_PATH = "/Q-AND-A-PWA"
-const VERSION = 'v0.1.3';
+const VERSION = 'v0.1.4';
 const CACHE_NAME = `question-answer-${VERSION}}`;
 const EXPECTED_CACHES = [CACHE_NAME];
 const CACHED_RESOURCES = [

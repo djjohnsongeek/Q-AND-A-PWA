@@ -41,7 +41,7 @@ indexPage = {
         indexPage.questionCountHeader.appendChild(questionCountTextNode);
 
         // Load default state.
-        indexPage.state.currentQIndex = QData.minIndex();
+        indexPage.state.currentQIndex = QData.minIndex;
         indexPage.state.currentQLang = QData.languages[0].toLowerCase();
 
         // Setup event listeners.
@@ -139,7 +139,7 @@ indexPage = {
     },
     hideActionBtns: function(currentQIndex)
     {
-        if ((currentQIndex - 1) < QData.minIndex())
+        if ((currentQIndex - 1) < QData.minIndex)
         {
             indexPage.setBtnDisabled(indexPage.prevBtn, true);
         }
