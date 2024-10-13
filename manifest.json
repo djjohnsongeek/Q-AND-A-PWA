@@ -2,7 +2,7 @@
     "lang": "en-us",
     "name": "Question & Answer App",
     "short_name": "Q&A",
-    "description": "A basic questiona answer application.",
+    "description": "A basic question and answer application.",
     "start_url": "/Q-AND-A-PWA/",
     "scope": "/Q-AND-A-PWA/",
     "background_color": "#2f3d58",

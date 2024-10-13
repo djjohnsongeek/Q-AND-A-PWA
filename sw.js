@@ -1,6 +1,7 @@
 const GIT_HUB_PATH = "/Q-AND-A-PWA"
-const VERSION = 'v0.1.1';
+const VERSION = 'v0.1.2';
 const CACHE_NAME = `question-answer-${VERSION}}`;
+const EXPECTED_CACHES = [CACHE_NAME];
 const CACHED_RESOURCES = [
   `${GIT_HUB_PATH}/`,
   `${GIT_HUB_PATH}/index.html`,
@@ -13,17 +14,32 @@ const CACHED_RESOURCES = [
 
 // Use the install event to pre-cache all initial resources.
 self.addEventListener('install', event => {
-    console.log("Install event fired.");
+    console.log(`Service Worker (${CACHE_NAME}) Installing.`);
+    self.skipWaiting();
     event.waitUntil((async () => {
-        const cache = await caches.open(CACHE_NAME);
-        cache.addAll(CACHED_RESOURCES);
+      const cache = await caches.open(CACHE_NAME);
+      cache.addAll(CACHED_RESOURCES);
     })());
 });
 
 // TODO add activate event to delte old cache
-self.addEventListener("activate", event => {
-    console.log("Activate event fired.");
+self.addEventListener('activate', event => {
+  // delete any caches that aren't in Expected Caches
+  console.log("Beginning Service Worker Activation.");
+
+  event.waitUntil(
+    caches.keys().then(keys => Promise.all(
+      keys.map(key => {
+        if (!EXPECTED_CACHES.includes(key)) {
+          return caches.delete(key);
+        }
+      })
+    )).then(() => {
+      console.log(`New Service Worker (${CACHE_NAME}) Activated.`);
+    })
+  );
 });
+
 
 self.addEventListener('fetch', event => {
   event.respondWith((async () => {
@@ -33,17 +49,19 @@ self.addEventListener('fetch', event => {
     const cachedResponse = await cache.match(event.request);
     if (cachedResponse) {
       return cachedResponse;
-    } else {
-        try {
-          // If the resource was not in the cache, try the network.
-          const fetchResponse = await fetch(event.request);
+    }
+    else {
+      try {
+        // If the resource was not in the cache, try the network.
+        const fetchResponse = await fetch(event.request);
 
-          // Save the resource in the cache and return it.
-          cache.put(event.request, fetchResponse.clone());
-          return fetchResponse;
-        } catch (e) {
-          // The network failed.
-        }
+        // Save the resource in the cache and return it.
+        cache.put(event.request, fetchResponse.clone());
+        return fetchResponse;
+      }
+      catch (e) {
+        // The network failed.
+      }
     }
   })());
 });
