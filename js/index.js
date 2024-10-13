@@ -1,6 +1,7 @@
 indexPage = {
     langSelect: null,
     questionHeader: null,
+    questionCountHeader: null,
     answerContainer: null,
     navBtnsContainer: null,
     showAnswerBtn: null,
@@ -15,6 +16,7 @@ indexPage = {
         // Load HTML elements.
         indexPage.langSelect = document.getElementById("language-select");
         indexPage.questionHeader = document.getElementById("question-header");
+        indexPage.questionCountHeader = document.getElementById("question-count");
         indexPage.answerContainer = document.getElementById("answer-container");
         indexPage.navBtnsContainer = document.getElementById("nav-buttons-container");
         indexPage.showAnswerBtn = document.getElementById("show-answer-btn");
@@ -33,8 +35,13 @@ indexPage = {
             indexPage.langSelect.appendChild(option);
         }
 
+        // Load question stats
+        const questionCountTextNode = document.createTextNode(`There are ${QData.questions.length} Questions`);
+        indexPage.questionCountHeader.innerHTML = "";
+        indexPage.questionCountHeader.appendChild(questionCountTextNode);
+
         // Load default state.
-        indexPage.state.currentQIndex = QData.minIndex;
+        indexPage.state.currentQIndex = QData.minIndex();
         indexPage.state.currentQLang = QData.languages[0].toLowerCase();
 
         // Setup event listeners.
@@ -70,7 +77,8 @@ indexPage = {
     },
     loadQuestion: function(qIndex, qlang)
     {
-        if (qIndex > QData.maxIndex || qIndex < QData.minIndex)
+        const maxIndex = QData.questions.maxIndex();
+        if (qIndex > maxIndex || qIndex < maxIndex)
         {
             alert("There are no more questions.");
             return;
@@ -116,6 +124,7 @@ indexPage = {
         const requiredElements = [
             indexPage.langSelect,
             indexPage.questionHeader,
+            indexPage.questionCountHeader,
             indexPage.answerContainer,
             indexPage.navBtnsContainer,
             indexPage.showAnswerBtn,
@@ -130,7 +139,7 @@ indexPage = {
     },
     hideActionBtns: function(currentQIndex)
     {
-        if ((currentQIndex - 1) < QData.minIndex)
+        if ((currentQIndex - 1) < QData.minIndex())
         {
             indexPage.setBtnDisabled(indexPage.prevBtn, true);
         }
@@ -138,7 +147,7 @@ indexPage = {
             indexPage.setBtnDisabled(indexPage.prevBtn, false);
         }
 
-        if ((currentQIndex + 1) > QData.maxIndex)
+        if ((currentQIndex + 1) > QData.maxIndex())
         {
             indexPage.setBtnDisabled(indexPage.nextBtn, true);
         }

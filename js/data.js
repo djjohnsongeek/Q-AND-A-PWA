@@ -1,5 +1,7 @@
 var QData = {
-    maxIndex: 6,
+    maxIndex: () => {
+        return this.questions.length - 1;
+    },
     minIndex: 0,
     languages: ["English", "French"],
     questions: [
